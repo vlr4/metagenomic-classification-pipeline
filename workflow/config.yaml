@@ -1,0 +1,25 @@
+# Main working (data) directory
+data_dir: "/mnt/shared/scratch/vtelizhe/metagenomic_networks/01test"
+
+# Sample design file
+samples: "sample_design.txt"
+
+# Input directories
+input:
+  databases: "/mnt/shared/scratch/vtelizhe/metagenomic_networks/databases"
+
+# GTDB-Tk resources
+gtdbtk:
+  # Path to GTDB-Tk mash database (adjust to your installation)
+  mash_db: "/mnt/shared/scratch/vtelizhe/metagenomic_networks/databases/gtdbtk/mash"
+
+# Output directories (relative to data_dir)
+output:
+  classify: "result/classify"
+
+# Resources
+threads: 20
+
+mem: "16G"
+
+

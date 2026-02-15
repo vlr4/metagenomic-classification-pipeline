@@ -1,11 +1,31 @@
+configfile: "config.yaml"
+
+import os
+from pathlib import Path
+
+base = Path(config["data_dir"])
+
+include: "rules/classification.smk"
+include: "rules/denovo_classification.smk"
+
 def bac120_tree(wc):
+    # wait for the classification checkpoint to finish
     checkpoints.gtdbtk_classify.get()
     msa = base / "result/classify/align/hybrid.bac120.user_msa.fasta"
     out = base / "result/classify/bac120_infer_out/gtdbtk.unrooted.tree"
-    return out if os.path.exists(msa) else []
+    return str(out) if msa.exists() else []
 
 def ar122_tree(wc):
+    # wait for the classification checkpoint to finish
     checkpoints.gtdbtk_classify.get()
     msa = base / "result/classify/align/hybrid.ar122.user_msa.fasta"
     out = base / "result/classify/ar122_infer_out/gtdbtk.unrooted.tree"
-    return out if os.path.exists(msa) else []
+    return str(out) if msa.exists() else []
+
+rule all:
+    input:
+        lambda wildcards: list(filter(bool, [
+            bac120_tree(wildcards),
+            ar122_tree(wildcards),
+            str(base / "result/classify/de_novo_classify/gtdbtk.log"),
+        ]))
