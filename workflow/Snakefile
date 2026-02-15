@@ -1,0 +1,11 @@
+def bac120_tree(wc):
+    checkpoints.gtdbtk_classify.get()
+    msa = base / "result/classify/align/hybrid.bac120.user_msa.fasta"
+    out = base / "result/classify/bac120_infer_out/gtdbtk.unrooted.tree"
+    return out if os.path.exists(msa) else []
+
+def ar122_tree(wc):
+    checkpoints.gtdbtk_classify.get()
+    msa = base / "result/classify/align/hybrid.ar122.user_msa.fasta"
+    out = base / "result/classify/ar122_infer_out/gtdbtk.unrooted.tree"
+    return out if os.path.exists(msa) else []
