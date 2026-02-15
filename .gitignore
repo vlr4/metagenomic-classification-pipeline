@@ -1,0 +1,33 @@
+# --- Snakemake ---
+.snakemake/
+snakemake.log
+*.snakemake.log
+
+# temporary files
+tmp/
+temp/
+*.tmp
+
+# Conda / environments
+.env/
+.venv/
+venv/
+conda-env/
+*.conda
+.envs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+build/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
