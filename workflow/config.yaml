@@ -1,12 +1,8 @@
 # Main working (data) directory
-data_dir: "/mnt/shared/scratch/vtelizhe/metagenomic_networks/01test"
+data_dir: "/mnt/shared/scratch/vtelizhe/metagenomic_networks/new"
 
 # Sample design file
 samples: "sample_design.txt"
-
-# Input directories
-input:
-  databases: "/mnt/shared/scratch/vtelizhe/metagenomic_networks/databases"
 
 # GTDB-Tk resources
 gtdbtk:
